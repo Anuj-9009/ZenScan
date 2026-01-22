@@ -1,9 +1,12 @@
 import Foundation
 
-/// Agent responsible for finding large files on disk
+/// Agent responsible for finding large files on disk with improved performance
 actor LargeFilesAgent {
     private let fileSystemAgent = FileSystemAgent()
     private let fileManager = FileManager.default
+    
+    /// Maximum number of files to return
+    private let maxResults = 200
     
     /// Default scan locations
     private var scanLocations: [URL] {
@@ -18,47 +21,75 @@ actor LargeFilesAgent {
         ]
     }
     
-    /// Scan for large files above threshold
+    /// Scan for large files above threshold with improved async handling
     func scanForLargeFiles(
         threshold: Int64 = 104857600, // 100 MB default
         progress: @escaping (Double, String) -> Void
     ) async -> [LargeFile] {
-        var largeFiles: [LargeFile] = []
-        let totalLocations = Double(scanLocations.count)
         
-        for (index, location) in scanLocations.enumerated() {
-            let folderName = location.lastPathComponent
-            progress(Double(index) / totalLocations, "Scanning \(folderName)...")
-            
-            let files = await scanDirectory(at: location, threshold: threshold)
-            largeFiles.append(contentsOf: files)
+        await MainActor.run {
+            progress(0, "Starting scan...")
         }
         
-        progress(1.0, "Found \(largeFiles.count) large files")
-        return largeFiles.sorted { $0.size > $1.size }
+        return await withCheckedContinuation { continuation in
+            DispatchQueue.global(qos: .userInitiated).async {
+                var largeFiles: [LargeFile] = []
+                let totalLocations = Double(self.scanLocations.count)
+                
+                for (index, location) in self.scanLocations.enumerated() {
+                    let folderName = location.lastPathComponent
+                    
+                    DispatchQueue.main.async {
+                        progress(Double(index) / totalLocations, "Scanning \(folderName)...")
+                    }
+                    
+                    let files = self.scanDirectorySync(at: location, threshold: threshold)
+                    largeFiles.append(contentsOf: files)
+                }
+                
+                // Sort and limit results
+                largeFiles.sort { $0.size > $1.size }
+                largeFiles = Array(largeFiles.prefix(self.maxResults))
+                
+                DispatchQueue.main.async {
+                    progress(1.0, "Found \(largeFiles.count) large files")
+                }
+                
+                continuation.resume(returning: largeFiles)
+            }
+        }
     }
     
-    /// Scan a specific directory for large files
-    private func scanDirectory(at url: URL, threshold: Int64) async -> [LargeFile] {
+    /// Scan a specific directory for large files (synchronous)
+    private func scanDirectorySync(at url: URL, threshold: Int64) -> [LargeFile] {
         var results: [LargeFile] = []
+        
+        guard fileManager.isReadableFile(atPath: url.path) else {
+            return results
+        }
         
         guard let enumerator = fileManager.enumerator(
             at: url,
             includingPropertiesForKeys: [.fileSizeKey, .isDirectoryKey, .contentModificationDateKey],
             options: [.skipsHiddenFiles, .skipsPackageDescendants],
-            errorHandler: nil
+            errorHandler: { _, _ in true } // Continue on errors
         ) else {
             return results
         }
         
+        var fileCount = 0
+        let maxFilesToScan = 5000 // Limit per directory
+        
         for case let fileURL as URL in enumerator {
-            do {
-                let resourceValues = try fileURL.resourceValues(forKeys: [.fileSizeKey, .isDirectoryKey, .contentModificationDateKey])
-                
-                // Skip directories
-                if resourceValues.isDirectory == true {
-                    continue
+            autoreleasepool {
+                fileCount += 1
+                if fileCount > maxFilesToScan {
+                    enumerator.skipDescendants()
+                    return
                 }
+                
+                guard let resourceValues = try? fileURL.resourceValues(forKeys: [.fileSizeKey, .isDirectoryKey, .contentModificationDateKey]),
+                      resourceValues.isDirectory != true else { return }
                 
                 let size = Int64(resourceValues.fileSize ?? 0)
                 if size >= threshold {
@@ -68,8 +99,6 @@ actor LargeFilesAgent {
                         modificationDate: resourceValues.contentModificationDate
                     ))
                 }
-            } catch {
-                continue
             }
         }
         

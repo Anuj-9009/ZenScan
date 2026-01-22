@@ -14,7 +14,7 @@ enum ScanState: Equatable {
     }
 }
 
-/// Dashboard ViewModel - orchestrates all scanning agents
+/// Dashboard ViewModel - orchestrates all scanning agents with improved performance
 @MainActor
 class DashboardViewModel: ObservableObject {
     // MARK: - Published Properties
@@ -23,6 +23,8 @@ class DashboardViewModel: ObservableObject {
     @Published var totalAppsCount: Int = 0
     @Published var totalBrowserDataSize: Int64 = 0
     @Published var loginItemsCount: Int = 0
+    @Published var lastScanDate: Date?
+    @Published var errorMessage: String?
     
     // Results from scans
     @Published var junkGroups: [JunkGroup] = []
@@ -38,46 +40,65 @@ class DashboardViewModel: ObservableObject {
     
     // MARK: - Smart Scan
     
-    /// Perform a complete system scan
+    /// Perform a complete system scan with improved error handling
     func performSmartScan() async {
-        scanState = .scanning(progress: 0, status: "Starting scan...")
+        errorMessage = nil
+        scanState = .scanning(progress: 0, status: "Initializing scan...")
         
-        // Phase 1: System Junk (25%)
-        junkGroups = await systemJunkAgent.scanForJunk { [weak self] progress, status in
-            Task { @MainActor in
-                self?.scanState = .scanning(progress: progress * 0.25, status: status)
+        // Add a small delay to let UI update
+        try? await Task.sleep(nanoseconds: 100_000_000) // 0.1 second
+        
+        do {
+            // Phase 1: System Junk (25%)
+            scanState = .scanning(progress: 0.05, status: "Scanning system junk...")
+            
+            junkGroups = await systemJunkAgent.scanForJunk { [weak self] progress, status in
+                Task { @MainActor in
+                    self?.scanState = .scanning(progress: progress * 0.25, status: status)
+                }
             }
-        }
-        totalJunkSize = await systemJunkAgent.totalJunkSize(in: junkGroups)
-        
-        // Phase 2: Applications (50%)
-        scanState = .scanning(progress: 0.25, status: "Scanning applications...")
-        installedApps = await applicationAgent.scanApplications { [weak self] progress, status in
-            Task { @MainActor in
-                self?.scanState = .scanning(progress: 0.25 + progress * 0.25, status: status)
+            totalJunkSize = await systemJunkAgent.totalJunkSize(in: junkGroups)
+            
+            // Phase 2: Applications (50%)
+            scanState = .scanning(progress: 0.25, status: "Scanning applications...")
+            try? await Task.sleep(nanoseconds: 50_000_000) // Brief pause for UI
+            
+            installedApps = await applicationAgent.scanApplications { [weak self] progress, status in
+                Task { @MainActor in
+                    self?.scanState = .scanning(progress: 0.25 + progress * 0.25, status: status)
+                }
             }
-        }
-        totalAppsCount = installedApps.count
-        
-        // Phase 3: Browser Data (75%)
-        scanState = .scanning(progress: 0.50, status: "Analyzing browser data...")
-        browserSummaries = await browserDataAgent.scanBrowserData { [weak self] progress, status in
-            Task { @MainActor in
-                self?.scanState = .scanning(progress: 0.50 + progress * 0.25, status: status)
+            totalAppsCount = installedApps.count
+            
+            // Phase 3: Browser Data (75%)
+            scanState = .scanning(progress: 0.50, status: "Analyzing browser data...")
+            try? await Task.sleep(nanoseconds: 50_000_000)
+            
+            browserSummaries = await browserDataAgent.scanBrowserData { [weak self] progress, status in
+                Task { @MainActor in
+                    self?.scanState = .scanning(progress: 0.50 + progress * 0.25, status: status)
+                }
             }
-        }
-        totalBrowserDataSize = browserSummaries.reduce(0) { $0 + $1.totalSize }
-        
-        // Phase 4: Processes (100%)
-        scanState = .scanning(progress: 0.75, status: "Checking startup items...")
-        processItems = await processAgent.scanProcesses { [weak self] progress, status in
-            Task { @MainActor in
-                self?.scanState = .scanning(progress: 0.75 + progress * 0.25, status: status)
+            totalBrowserDataSize = browserSummaries.reduce(0) { $0 + $1.totalSize }
+            
+            // Phase 4: Processes (100%)
+            scanState = .scanning(progress: 0.75, status: "Checking startup items...")
+            try? await Task.sleep(nanoseconds: 50_000_000)
+            
+            processItems = await processAgent.scanProcesses { [weak self] progress, status in
+                Task { @MainActor in
+                    self?.scanState = .scanning(progress: 0.75 + progress * 0.25, status: status)
+                }
             }
+            loginItemsCount = processItems[.loginItems]?.count ?? 0
+            
+            lastScanDate = Date()
+            scanState = .complete
+            
+        } catch {
+            errorMessage = error.localizedDescription
+            scanState = .error(error.localizedDescription)
         }
-        loginItemsCount = processItems[.loginItems]?.count ?? 0
-        
-        scanState = .complete
     }
     
     /// Reset scan state
@@ -91,6 +112,7 @@ class DashboardViewModel: ObservableObject {
         installedApps = []
         browserSummaries = []
         processItems = [:]
+        errorMessage = nil
     }
     
     // MARK: - Cleanup Actions
@@ -98,7 +120,35 @@ class DashboardViewModel: ObservableObject {
     /// Clean selected junk items
     func cleanSelectedJunk() async -> (deleted: Int, failed: Int) {
         let selectedItems = junkGroups.flatMap { $0.items.filter { $0.isSelected } }
-        return (try? await systemJunkAgent.deleteItems(selectedItems)) ?? (0, selectedItems.count)
+        guard !selectedItems.isEmpty else { return (0, 0) }
+        
+        do {
+            let result = try await systemJunkAgent.deleteItems(selectedItems)
+            // Refresh after cleaning
+            await performSmartScan()
+            return result
+        } catch {
+            errorMessage = "Clean failed: \(error.localizedDescription)"
+            return (0, selectedItems.count)
+        }
+    }
+    
+    /// Select all junk items
+    func selectAllJunk() {
+        for groupIndex in junkGroups.indices {
+            for itemIndex in junkGroups[groupIndex].items.indices {
+                junkGroups[groupIndex].items[itemIndex].isSelected = true
+            }
+        }
+    }
+    
+    /// Deselect all junk items
+    func deselectAllJunk() {
+        for groupIndex in junkGroups.indices {
+            for itemIndex in junkGroups[groupIndex].items.indices {
+                junkGroups[groupIndex].items[itemIndex].isSelected = false
+            }
+        }
     }
     
     /// Get formatted total junk size
@@ -109,5 +159,12 @@ class DashboardViewModel: ObservableObject {
     /// Get formatted browser data size
     var formattedBrowserDataSize: String {
         ByteCountFormatter.string(fromByteCount: totalBrowserDataSize, countStyle: .file)
+    }
+    
+    /// Check if Full Disk Access is likely granted
+    var hasFullDiskAccess: Bool {
+        let testPath = FileManager.default.homeDirectoryForCurrentUser
+            .appendingPathComponent("Library/Safari/Bookmarks.plist")
+        return FileManager.default.isReadableFile(atPath: testPath.path)
     }
 }
