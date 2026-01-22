@@ -1,13 +1,19 @@
 import SwiftUI
 
-/// Navigation item enum for sidebar (v2.0 with new modules)
+/// Navigation item enum for sidebar (v2.1 with all modules)
 enum NavigationItem: String, CaseIterable, Identifiable {
     case dashboard = "Smart Scan"
     case systemJunk = "System Junk"
     case largeFiles = "Large Files"
     case duplicates = "Duplicates"
+    case diskVisualizer = "Disk Visualizer"
+    case downloads = "Downloads"
     case xcodeCleaner = "Xcode Cleaner"
     case uninstaller = "Uninstaller"
+    case ramCleaner = "RAM Cleaner"
+    case shredder = "File Shredder"
+    case malware = "Malware Scanner"
+    case battery = "Battery Health"
     case privacy = "Privacy"
     case optimization = "Optimization"
     case settings = "Settings"
@@ -20,8 +26,14 @@ enum NavigationItem: String, CaseIterable, Identifiable {
         case .systemJunk: return "trash.slash.circle"
         case .largeFiles: return "doc.badge.gearshape"
         case .duplicates: return "doc.on.doc"
+        case .diskVisualizer: return "square.grid.3x3.fill"
+        case .downloads: return "arrow.down.circle"
         case .xcodeCleaner: return "hammer.circle"
         case .uninstaller: return "square.stack.3d.up"
+        case .ramCleaner: return "memorychip"
+        case .shredder: return "scissors"
+        case .malware: return "shield.lefthalf.filled"
+        case .battery: return "battery.100"
         case .privacy: return "hand.raised.circle"
         case .optimization: return "bolt.circle"
         case .settings: return "gear"
@@ -31,8 +43,24 @@ enum NavigationItem: String, CaseIterable, Identifiable {
     /// Group separators for visual hierarchy
     var showDividerAfter: Bool {
         switch self {
-        case .dashboard, .xcodeCleaner, .optimization: return true
+        case .dashboard, .xcodeCleaner, .battery, .optimization: return true
         default: return false
+        }
+    }
+    
+    /// Keyboard shortcut number (1-9, then 0)
+    var shortcutNumber: String? {
+        switch self {
+        case .dashboard: return "1"
+        case .systemJunk: return "2"
+        case .largeFiles: return "3"
+        case .duplicates: return "4"
+        case .malware: return "5"
+        case .uninstaller: return "6"
+        case .privacy: return "7"
+        case .optimization: return "8"
+        case .settings: return "9"
+        default: return nil
         }
     }
 }
@@ -44,6 +72,7 @@ struct ContentView: View {
     @State private var columnVisibility: NavigationSplitViewVisibility = .all
     @State private var showOnboarding = !OnboardingManager.hasCompletedOnboarding
     @State private var showConfetti = false
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         NavigationSplitView(columnVisibility: $columnVisibility) {
@@ -63,7 +92,7 @@ struct ContentView: View {
                             .font(.system(size: 20, weight: .bold, design: .rounded))
                             .foregroundColor(.frostWhite)
                         
-                        Text("v2.0")
+                        Text("v2.1")
                             .font(.caption2)
                             .foregroundColor(.slateGray)
                             .padding(.leading, 4)
@@ -100,7 +129,7 @@ struct ContentView: View {
                     Spacer()
                     
                     // Footer with version
-                    Text("Version 2.0.0")
+                    Text("Version 2.1.0")
                         .font(.caption)
                         .foregroundColor(.slateGray)
                         .padding(.bottom, 16)
@@ -126,6 +155,16 @@ struct ContentView: View {
         .sheet(isPresented: $showOnboarding) {
             OnboardingView(isPresented: $showOnboarding)
         }
+        // Keyboard shortcuts
+        .keyboardShortcut("1", modifiers: .command, action: { selectedItem = .dashboard })
+        .keyboardShortcut("2", modifiers: .command, action: { selectedItem = .systemJunk })
+        .keyboardShortcut("3", modifiers: .command, action: { selectedItem = .largeFiles })
+        .keyboardShortcut("4", modifiers: .command, action: { selectedItem = .duplicates })
+        .keyboardShortcut("5", modifiers: .command, action: { selectedItem = .malware })
+        .keyboardShortcut("6", modifiers: .command, action: { selectedItem = .uninstaller })
+        .keyboardShortcut("7", modifiers: .command, action: { selectedItem = .privacy })
+        .keyboardShortcut("8", modifiers: .command, action: { selectedItem = .optimization })
+        .keyboardShortcut("9", modifiers: .command, action: { selectedItem = .settings })
     }
     
     @ViewBuilder
@@ -139,10 +178,22 @@ struct ContentView: View {
             LargeFilesView()
         case .duplicates:
             DuplicateView()
+        case .diskVisualizer:
+            DiskVisualizerView()
+        case .downloads:
+            DownloadManagerView()
         case .xcodeCleaner:
             XcodeCleanerView()
         case .uninstaller:
             UninstallerView()
+        case .ramCleaner:
+            RAMCleanerView()
+        case .shredder:
+            ShredderView()
+        case .malware:
+            MalwareScannerView()
+        case .battery:
+            BatteryHealthView()
         case .privacy:
             PrivacyView()
         case .optimization:
@@ -158,6 +209,18 @@ struct ContentView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             showConfetti = false
         }
+    }
+}
+
+/// Keyboard shortcut extension
+extension View {
+    func keyboardShortcut(_ key: String, modifiers: EventModifiers, action: @escaping () -> Void) -> some View {
+        self.background(
+            Button(action: action) { EmptyView() }
+                .keyboardShortcut(KeyEquivalent(Character(key)), modifiers: modifiers)
+                .frame(width: 0, height: 0)
+                .opacity(0)
+        )
     }
 }
 
@@ -178,6 +241,13 @@ struct NavigationButton: View {
                     .font(.system(size: 14, weight: .medium))
                 
                 Spacer()
+                
+                // Keyboard shortcut hint
+                if let shortcut = item.shortcutNumber {
+                    Text("⌘\(shortcut)")
+                        .font(.caption2)
+                        .foregroundColor(.slateGray.opacity(0.5))
+                }
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 10)
@@ -262,5 +332,5 @@ struct ConfettiParticle: Identifiable {
 #Preview {
     ContentView()
         .environmentObject(DashboardViewModel())
-        .frame(width: 900, height: 600)
+        .frame(width: 1000, height: 700)
 }

@@ -45,6 +45,19 @@
 		B036 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F036; };
 		B037 /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F037; };
 		B038 /* SystemMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F038; };
+		B039 /* DiskSpaceAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F039; };
+		B040 /* TreemapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F040; };
+		B041 /* DiskVisualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F041; };
+		B042 /* MemoryAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F042; };
+		B043 /* RAMCleanerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F043; };
+		B044 /* ShredderAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F044; };
+		B045 /* ShredderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F045; };
+		B046 /* DownloadAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F046; };
+		B047 /* DownloadManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F047; };
+		B048 /* MalwareAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048; };
+		B049 /* MalwareScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049; };
+		B050 /* BatteryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F050; };
+		B051 /* BatteryHealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +99,19 @@
 		F036 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F037 /* MenuBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
 		F038 /* SystemMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMonitor.swift; sourceTree = "<group>"; };
+		F039 /* DiskSpaceAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskSpaceAgent.swift; sourceTree = "<group>"; };
+		F040 /* TreemapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreemapView.swift; sourceTree = "<group>"; };
+		F041 /* DiskVisualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskVisualizerView.swift; sourceTree = "<group>"; };
+		F042 /* MemoryAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryAgent.swift; sourceTree = "<group>"; };
+		F043 /* RAMCleanerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMCleanerView.swift; sourceTree = "<group>"; };
+		F044 /* ShredderAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShredderAgent.swift; sourceTree = "<group>"; };
+		F045 /* ShredderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShredderView.swift; sourceTree = "<group>"; };
+		F046 /* DownloadAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAgent.swift; sourceTree = "<group>"; };
+		F047 /* DownloadManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManagerView.swift; sourceTree = "<group>"; };
+		F048 /* MalwareAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MalwareAgent.swift; sourceTree = "<group>"; };
+		F049 /* MalwareScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MalwareScannerView.swift; sourceTree = "<group>"; };
+		F050 /* BatteryMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryMonitor.swift; sourceTree = "<group>"; };
+		F051 /* BatteryHealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryHealthView.swift; sourceTree = "<group>"; };
 		F100 /* ZenScan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZenScan.entitlements; sourceTree = "<group>"; };
 		P001 /* ZenScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZenScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -173,6 +199,12 @@
 				F034 /* XcodeCleanerView.swift */,
 				F035 /* OnboardingView.swift */,
 				F036 /* SettingsView.swift */,
+				F041 /* DiskVisualizerView.swift */,
+				F043 /* RAMCleanerView.swift */,
+				F045 /* ShredderView.swift */,
+				F047 /* DownloadManagerView.swift */,
+				F049 /* MalwareScannerView.swift */,
+				F051 /* BatteryHealthView.swift */,
 				G008 /* Components */,
 			);
 			path = Views;
@@ -183,6 +215,7 @@
 			children = (
 				F037 /* MenuBarManager.swift */,
 				F038 /* SystemMonitor.swift */,
+				F050 /* BatteryMonitor.swift */,
 				G009 /* Agents */,
 			);
 			path = Services;
@@ -192,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				F008 /* DesignSystem.swift */,
+				F040 /* TreemapView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -207,6 +241,11 @@
 				F026 /* LargeFilesAgent.swift */,
 				F027 /* DuplicateAgent.swift */,
 				F028 /* XcodeAgent.swift */,
+				F039 /* DiskSpaceAgent.swift */,
+				F042 /* MemoryAgent.swift */,
+				F044 /* ShredderAgent.swift */,
+				F046 /* DownloadAgent.swift */,
+				F048 /* MalwareAgent.swift */,
 			);
 			path = Agents;
 			sourceTree = "<group>";
@@ -317,6 +356,19 @@
 				B036 /* SettingsView.swift in Sources */,
 				B037 /* MenuBarManager.swift in Sources */,
 				B038 /* SystemMonitor.swift in Sources */,
+				B039 /* DiskSpaceAgent.swift in Sources */,
+				B040 /* TreemapView.swift in Sources */,
+				B041 /* DiskVisualizerView.swift in Sources */,
+				B042 /* MemoryAgent.swift in Sources */,
+				B043 /* RAMCleanerView.swift in Sources */,
+				B044 /* ShredderAgent.swift in Sources */,
+				B045 /* ShredderView.swift in Sources */,
+				B046 /* DownloadAgent.swift in Sources */,
+				B047 /* DownloadManagerView.swift in Sources */,
+				B048 /* MalwareAgent.swift in Sources */,
+				B049 /* MalwareScannerView.swift in Sources */,
+				B050 /* BatteryMonitor.swift in Sources */,
+				B051 /* BatteryHealthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,7 +501,7 @@
 				CODE_SIGN_ENTITLEMENTS = ZenScan/ZenScan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -460,7 +512,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zenscan.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -476,7 +528,7 @@
 				CODE_SIGN_ENTITLEMENTS = ZenScan/ZenScan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -487,7 +539,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zenscan.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
