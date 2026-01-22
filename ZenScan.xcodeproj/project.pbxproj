@@ -7,61 +7,91 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		001 /* ZenScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100; };
-		002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101; };
-		003 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102; };
-		004 /* SystemJunkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103; };
-		005 /* UninstallerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104; };
-		006 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105; };
-		007 /* OptimizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106; };
-		008 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107; };
-		009 /* JunkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108; };
-		010 /* InstalledApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109; };
-		011 /* BrowserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110; };
-		012 /* ProcessItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111; };
-		013 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112; };
-		014 /* SystemJunkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113; };
-		015 /* UninstallerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114; };
-		016 /* PrivacyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115; };
-		017 /* OptimizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116; };
-		018 /* FileSystemAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117; };
-		019 /* SystemJunkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118; };
-		020 /* ApplicationAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119; };
-		021 /* BrowserDataAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120; };
-		022 /* ProcessAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121; };
-		023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122; };
+		B001 /* ZenScanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001; };
+		B002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002; };
+		B003 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F003; };
+		B004 /* SystemJunkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004; };
+		B005 /* UninstallerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005; };
+		B006 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F006; };
+		B007 /* OptimizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007; };
+		B008 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008; };
+		B009 /* JunkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009; };
+		B010 /* InstalledApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F010; };
+		B011 /* BrowserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011; };
+		B012 /* ProcessItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F012; };
+		B013 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F013; };
+		B014 /* SystemJunkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F014; };
+		B015 /* UninstallerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F015; };
+		B016 /* PrivacyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016; };
+		B017 /* OptimizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017; };
+		B018 /* FileSystemAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F018; };
+		B019 /* SystemJunkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F019; };
+		B020 /* ApplicationAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F020; };
+		B021 /* BrowserDataAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F021; };
+		B022 /* ProcessAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F022; };
+		B023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F023; };
+		B024 /* LargeFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F024; };
+		B025 /* DuplicateGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F025; };
+		B026 /* LargeFilesAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F026; };
+		B027 /* DuplicateAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027; };
+		B028 /* XcodeAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F028; };
+		B029 /* LargeFilesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F029; };
+		B030 /* DuplicateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030; };
+		B031 /* XcodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F031; };
+		B032 /* LargeFilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032; };
+		B033 /* DuplicateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033; };
+		B034 /* XcodeCleanerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F034; };
+		B035 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F035; };
+		B036 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F036; };
+		B037 /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F037; };
+		B038 /* SystemMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F038; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		100 /* ZenScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenScanApp.swift; sourceTree = "<group>"; };
-		101 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		102 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
-		103 /* SystemJunkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemJunkView.swift; sourceTree = "<group>"; };
-		104 /* UninstallerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninstallerView.swift; sourceTree = "<group>"; };
-		105 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
-		106 /* OptimizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizationView.swift; sourceTree = "<group>"; };
-		107 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
-		108 /* JunkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JunkItem.swift; sourceTree = "<group>"; };
-		109 /* InstalledApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstalledApp.swift; sourceTree = "<group>"; };
-		110 /* BrowserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserData.swift; sourceTree = "<group>"; };
-		111 /* ProcessItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessItem.swift; sourceTree = "<group>"; };
-		112 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
-		113 /* SystemJunkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemJunkViewModel.swift; sourceTree = "<group>"; };
-		114 /* UninstallerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninstallerViewModel.swift; sourceTree = "<group>"; };
-		115 /* PrivacyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewModel.swift; sourceTree = "<group>"; };
-		116 /* OptimizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizationViewModel.swift; sourceTree = "<group>"; };
-		117 /* FileSystemAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemAgent.swift; sourceTree = "<group>"; };
-		118 /* SystemJunkAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemJunkAgent.swift; sourceTree = "<group>"; };
-		119 /* ApplicationAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAgent.swift; sourceTree = "<group>"; };
-		120 /* BrowserDataAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataAgent.swift; sourceTree = "<group>"; };
-		121 /* ProcessAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessAgent.swift; sourceTree = "<group>"; };
-		122 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		123 /* ZenScan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZenScan.entitlements; sourceTree = "<group>"; };
-		200 /* ZenScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZenScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F001 /* ZenScanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenScanApp.swift; sourceTree = "<group>"; };
+		F002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F003 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		F004 /* SystemJunkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemJunkView.swift; sourceTree = "<group>"; };
+		F005 /* UninstallerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninstallerView.swift; sourceTree = "<group>"; };
+		F006 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		F007 /* OptimizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizationView.swift; sourceTree = "<group>"; };
+		F008 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		F009 /* JunkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JunkItem.swift; sourceTree = "<group>"; };
+		F010 /* InstalledApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstalledApp.swift; sourceTree = "<group>"; };
+		F011 /* BrowserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserData.swift; sourceTree = "<group>"; };
+		F012 /* ProcessItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessItem.swift; sourceTree = "<group>"; };
+		F013 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		F014 /* SystemJunkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemJunkViewModel.swift; sourceTree = "<group>"; };
+		F015 /* UninstallerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UninstallerViewModel.swift; sourceTree = "<group>"; };
+		F016 /* PrivacyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewModel.swift; sourceTree = "<group>"; };
+		F017 /* OptimizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimizationViewModel.swift; sourceTree = "<group>"; };
+		F018 /* FileSystemAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemAgent.swift; sourceTree = "<group>"; };
+		F019 /* SystemJunkAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemJunkAgent.swift; sourceTree = "<group>"; };
+		F020 /* ApplicationAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAgent.swift; sourceTree = "<group>"; };
+		F021 /* BrowserDataAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserDataAgent.swift; sourceTree = "<group>"; };
+		F022 /* ProcessAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessAgent.swift; sourceTree = "<group>"; };
+		F023 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F024 /* LargeFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFile.swift; sourceTree = "<group>"; };
+		F025 /* DuplicateGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateGroup.swift; sourceTree = "<group>"; };
+		F026 /* LargeFilesAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFilesAgent.swift; sourceTree = "<group>"; };
+		F027 /* DuplicateAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateAgent.swift; sourceTree = "<group>"; };
+		F028 /* XcodeAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeAgent.swift; sourceTree = "<group>"; };
+		F029 /* LargeFilesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFilesViewModel.swift; sourceTree = "<group>"; };
+		F030 /* DuplicateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateViewModel.swift; sourceTree = "<group>"; };
+		F031 /* XcodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeViewModel.swift; sourceTree = "<group>"; };
+		F032 /* LargeFilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeFilesView.swift; sourceTree = "<group>"; };
+		F033 /* DuplicateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateView.swift; sourceTree = "<group>"; };
+		F034 /* XcodeCleanerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XcodeCleanerView.swift; sourceTree = "<group>"; };
+		F035 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		F036 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F037 /* MenuBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
+		F038 /* SystemMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMonitor.swift; sourceTree = "<group>"; };
+		F100 /* ZenScan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZenScan.entitlements; sourceTree = "<group>"; };
+		P001 /* ZenScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZenScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		300 /* Frameworks */ = {
+		FWK01 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,111 +101,126 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		400 = {
+		G001 = {
 			isa = PBXGroup;
 			children = (
-				401 /* ZenScan */,
-				500 /* Products */,
+				G002 /* ZenScan */,
+				G003 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		401 /* ZenScan */ = {
+		G002 /* ZenScan */ = {
 			isa = PBXGroup;
 			children = (
-				100 /* ZenScanApp.swift */,
-				123 /* ZenScan.entitlements */,
-				122 /* Assets.xcassets */,
-				402 /* Models */,
-				403 /* ViewModels */,
-				404 /* Views */,
-				405 /* Services */,
+				F001 /* ZenScanApp.swift */,
+				F100 /* ZenScan.entitlements */,
+				F023 /* Assets.xcassets */,
+				G004 /* Models */,
+				G005 /* ViewModels */,
+				G006 /* Views */,
+				G007 /* Services */,
 			);
 			path = ZenScan;
 			sourceTree = "<group>";
 		};
-		402 /* Models */ = {
+		G003 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				108 /* JunkItem.swift */,
-				109 /* InstalledApp.swift */,
-				110 /* BrowserData.swift */,
-				111 /* ProcessItem.swift */,
+				P001 /* ZenScan.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		G004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F009 /* JunkItem.swift */,
+				F010 /* InstalledApp.swift */,
+				F011 /* BrowserData.swift */,
+				F012 /* ProcessItem.swift */,
+				F024 /* LargeFile.swift */,
+				F025 /* DuplicateGroup.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		403 /* ViewModels */ = {
+		G005 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				112 /* DashboardViewModel.swift */,
-				113 /* SystemJunkViewModel.swift */,
-				114 /* UninstallerViewModel.swift */,
-				115 /* PrivacyViewModel.swift */,
-				116 /* OptimizationViewModel.swift */,
+				F013 /* DashboardViewModel.swift */,
+				F014 /* SystemJunkViewModel.swift */,
+				F015 /* UninstallerViewModel.swift */,
+				F016 /* PrivacyViewModel.swift */,
+				F017 /* OptimizationViewModel.swift */,
+				F029 /* LargeFilesViewModel.swift */,
+				F030 /* DuplicateViewModel.swift */,
+				F031 /* XcodeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		404 /* Views */ = {
+		G006 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				101 /* ContentView.swift */,
-				102 /* DashboardView.swift */,
-				103 /* SystemJunkView.swift */,
-				104 /* UninstallerView.swift */,
-				105 /* PrivacyView.swift */,
-				106 /* OptimizationView.swift */,
-				406 /* Components */,
+				F002 /* ContentView.swift */,
+				F003 /* DashboardView.swift */,
+				F004 /* SystemJunkView.swift */,
+				F005 /* UninstallerView.swift */,
+				F006 /* PrivacyView.swift */,
+				F007 /* OptimizationView.swift */,
+				F032 /* LargeFilesView.swift */,
+				F033 /* DuplicateView.swift */,
+				F034 /* XcodeCleanerView.swift */,
+				F035 /* OnboardingView.swift */,
+				F036 /* SettingsView.swift */,
+				G008 /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		405 /* Services */ = {
+		G007 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				407 /* Agents */,
+				F037 /* MenuBarManager.swift */,
+				F038 /* SystemMonitor.swift */,
+				G009 /* Agents */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		406 /* Components */ = {
+		G008 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				107 /* DesignSystem.swift */,
+				F008 /* DesignSystem.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		407 /* Agents */ = {
+		G009 /* Agents */ = {
 			isa = PBXGroup;
 			children = (
-				117 /* FileSystemAgent.swift */,
-				118 /* SystemJunkAgent.swift */,
-				119 /* ApplicationAgent.swift */,
-				120 /* BrowserDataAgent.swift */,
-				121 /* ProcessAgent.swift */,
+				F018 /* FileSystemAgent.swift */,
+				F019 /* SystemJunkAgent.swift */,
+				F020 /* ApplicationAgent.swift */,
+				F021 /* BrowserDataAgent.swift */,
+				F022 /* ProcessAgent.swift */,
+				F026 /* LargeFilesAgent.swift */,
+				F027 /* DuplicateAgent.swift */,
+				F028 /* XcodeAgent.swift */,
 			);
 			path = Agents;
-			sourceTree = "<group>";
-		};
-		500 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				200 /* ZenScan.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		600 /* ZenScan */ = {
+		T001 /* ZenScan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 700;
+			buildConfigurationList = CL001;
 			buildPhases = (
-				601 /* Sources */,
-				300 /* Frameworks */,
-				602 /* Resources */,
+				SRC01 /* Sources */,
+				FWK01 /* Frameworks */,
+				RES01 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -183,25 +228,25 @@
 			);
 			name = ZenScan;
 			productName = ZenScan;
-			productReference = 200 /* ZenScan.app */;
+			productReference = P001 /* ZenScan.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		800 /* Project object */ = {
+		PRJ01 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					600 = {
+					T001 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
 			};
-			buildConfigurationList = 801;
+			buildConfigurationList = CL002;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -209,61 +254,76 @@
 				en,
 				Base,
 			);
-			mainGroup = 400;
-			productRefGroup = 500 /* Products */;
+			mainGroup = G001;
+			productRefGroup = G003 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				600 /* ZenScan */,
+				T001 /* ZenScan */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		602 /* Resources */ = {
+		RES01 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				023 /* Assets.xcassets in Resources */,
+				B023 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		601 /* Sources */ = {
+		SRC01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				001 /* ZenScanApp.swift in Sources */,
-				002 /* ContentView.swift in Sources */,
-				003 /* DashboardView.swift in Sources */,
-				004 /* SystemJunkView.swift in Sources */,
-				005 /* UninstallerView.swift in Sources */,
-				006 /* PrivacyView.swift in Sources */,
-				007 /* OptimizationView.swift in Sources */,
-				008 /* DesignSystem.swift in Sources */,
-				009 /* JunkItem.swift in Sources */,
-				010 /* InstalledApp.swift in Sources */,
-				011 /* BrowserData.swift in Sources */,
-				012 /* ProcessItem.swift in Sources */,
-				013 /* DashboardViewModel.swift in Sources */,
-				014 /* SystemJunkViewModel.swift in Sources */,
-				015 /* UninstallerViewModel.swift in Sources */,
-				016 /* PrivacyViewModel.swift in Sources */,
-				017 /* OptimizationViewModel.swift in Sources */,
-				018 /* FileSystemAgent.swift in Sources */,
-				019 /* SystemJunkAgent.swift in Sources */,
-				020 /* ApplicationAgent.swift in Sources */,
-				021 /* BrowserDataAgent.swift in Sources */,
-				022 /* ProcessAgent.swift in Sources */,
+				B001 /* ZenScanApp.swift in Sources */,
+				B002 /* ContentView.swift in Sources */,
+				B003 /* DashboardView.swift in Sources */,
+				B004 /* SystemJunkView.swift in Sources */,
+				B005 /* UninstallerView.swift in Sources */,
+				B006 /* PrivacyView.swift in Sources */,
+				B007 /* OptimizationView.swift in Sources */,
+				B008 /* DesignSystem.swift in Sources */,
+				B009 /* JunkItem.swift in Sources */,
+				B010 /* InstalledApp.swift in Sources */,
+				B011 /* BrowserData.swift in Sources */,
+				B012 /* ProcessItem.swift in Sources */,
+				B013 /* DashboardViewModel.swift in Sources */,
+				B014 /* SystemJunkViewModel.swift in Sources */,
+				B015 /* UninstallerViewModel.swift in Sources */,
+				B016 /* PrivacyViewModel.swift in Sources */,
+				B017 /* OptimizationViewModel.swift in Sources */,
+				B018 /* FileSystemAgent.swift in Sources */,
+				B019 /* SystemJunkAgent.swift in Sources */,
+				B020 /* ApplicationAgent.swift in Sources */,
+				B021 /* BrowserDataAgent.swift in Sources */,
+				B022 /* ProcessAgent.swift in Sources */,
+				B024 /* LargeFile.swift in Sources */,
+				B025 /* DuplicateGroup.swift in Sources */,
+				B026 /* LargeFilesAgent.swift in Sources */,
+				B027 /* DuplicateAgent.swift in Sources */,
+				B028 /* XcodeAgent.swift in Sources */,
+				B029 /* LargeFilesViewModel.swift in Sources */,
+				B030 /* DuplicateViewModel.swift in Sources */,
+				B031 /* XcodeViewModel.swift in Sources */,
+				B032 /* LargeFilesView.swift in Sources */,
+				B033 /* DuplicateView.swift in Sources */,
+				B034 /* XcodeCleanerView.swift in Sources */,
+				B035 /* OnboardingView.swift in Sources */,
+				B036 /* SettingsView.swift in Sources */,
+				B037 /* MenuBarManager.swift in Sources */,
+				B038 /* SystemMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		900 /* Debug */ = {
+		CFG01 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -326,7 +386,7 @@
 			};
 			name = Debug;
 		};
-		901 /* Release */ = {
+		CFG02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -381,7 +441,7 @@
 			};
 			name = Release;
 		};
-		902 /* Debug */ = {
+		CFG03 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -389,7 +449,7 @@
 				CODE_SIGN_ENTITLEMENTS = ZenScan/ZenScan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -400,7 +460,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zenscan.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -408,7 +468,7 @@
 			};
 			name = Debug;
 		};
-		903 /* Release */ = {
+		CFG04 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -416,7 +476,7 @@
 				CODE_SIGN_ENTITLEMENTS = ZenScan/ZenScan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -427,7 +487,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zenscan.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -438,25 +498,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		700 /* Build configuration list for PBXNativeTarget "ZenScan" */ = {
+		CL001 /* Build configuration list for PBXNativeTarget "ZenScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				902 /* Debug */,
-				903 /* Release */,
+				CFG03 /* Debug */,
+				CFG04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		801 /* Build configuration list for PBXProject "ZenScan" */ = {
+		CL002 /* Build configuration list for PBXProject "ZenScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				900 /* Debug */,
-				901 /* Release */,
+				CFG01 /* Debug */,
+				CFG02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 800 /* Project object */;
+	rootObject = PRJ01 /* Project object */;
 }
