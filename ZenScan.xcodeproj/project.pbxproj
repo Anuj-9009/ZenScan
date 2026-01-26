@@ -58,6 +58,19 @@
 		B049 /* MalwareScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F049; };
 		B050 /* BatteryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F050; };
 		B051 /* BatteryHealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F051; };
+		B052 /* HomebrewAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052; };
+		B053 /* NodeAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F053; };
+		B054 /* DockerAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F054; };
+		B055 /* GitAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F055; };
+		B056 /* DeveloperToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F056; };
+		B057 /* AnimatedComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F057; };
+		B058 /* ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F058; };
+		B059 /* RecommendationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059; };
+		B060 /* ScanHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F060; };
+		B061 /* TimeMachineAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F061; };
+		B062 /* FontAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F062; };
+		B063 /* PermissionsAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F063; };
+		B064 /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F064; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +125,19 @@
 		F049 /* MalwareScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MalwareScannerView.swift; sourceTree = "<group>"; };
 		F050 /* BatteryMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryMonitor.swift; sourceTree = "<group>"; };
 		F051 /* BatteryHealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryHealthView.swift; sourceTree = "<group>"; };
+		F052 /* HomebrewAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomebrewAgent.swift; sourceTree = "<group>"; };
+		F053 /* NodeAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeAgent.swift; sourceTree = "<group>"; };
+		F054 /* DockerAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockerAgent.swift; sourceTree = "<group>"; };
+		F055 /* GitAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitAgent.swift; sourceTree = "<group>"; };
+		F056 /* DeveloperToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperToolsView.swift; sourceTree = "<group>"; };
+		F057 /* AnimatedComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedComponents.swift; sourceTree = "<group>"; };
+		F058 /* ScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleManager.swift; sourceTree = "<group>"; };
+		F059 /* RecommendationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationEngine.swift; sourceTree = "<group>"; };
+		F060 /* ScanHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanHistory.swift; sourceTree = "<group>"; };
+		F061 /* TimeMachineAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeMachineAgent.swift; sourceTree = "<group>"; };
+		F062 /* FontAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontAgent.swift; sourceTree = "<group>"; };
+		F063 /* PermissionsAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsAgent.swift; sourceTree = "<group>"; };
+		F064 /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
 		F100 /* ZenScan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ZenScan.entitlements; sourceTree = "<group>"; };
 		P001 /* ZenScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZenScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -166,6 +192,7 @@
 				F012 /* ProcessItem.swift */,
 				F024 /* LargeFile.swift */,
 				F025 /* DuplicateGroup.swift */,
+				F060 /* ScanHistory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -205,6 +232,8 @@
 				F047 /* DownloadManagerView.swift */,
 				F049 /* MalwareScannerView.swift */,
 				F051 /* BatteryHealthView.swift */,
+				F056 /* DeveloperToolsView.swift */,
+				F064 /* PermissionsView.swift */,
 				G008 /* Components */,
 			);
 			path = Views;
@@ -216,6 +245,8 @@
 				F037 /* MenuBarManager.swift */,
 				F038 /* SystemMonitor.swift */,
 				F050 /* BatteryMonitor.swift */,
+				F058 /* ScheduleManager.swift */,
+				F059 /* RecommendationEngine.swift */,
 				G009 /* Agents */,
 			);
 			path = Services;
@@ -226,6 +257,7 @@
 			children = (
 				F008 /* DesignSystem.swift */,
 				F040 /* TreemapView.swift */,
+				F057 /* AnimatedComponents.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -246,6 +278,13 @@
 				F044 /* ShredderAgent.swift */,
 				F046 /* DownloadAgent.swift */,
 				F048 /* MalwareAgent.swift */,
+				F052 /* HomebrewAgent.swift */,
+				F053 /* NodeAgent.swift */,
+				F054 /* DockerAgent.swift */,
+				F055 /* GitAgent.swift */,
+				F061 /* TimeMachineAgent.swift */,
+				F062 /* FontAgent.swift */,
+				F063 /* PermissionsAgent.swift */,
 			);
 			path = Agents;
 			sourceTree = "<group>";
@@ -369,6 +408,19 @@
 				B049 /* MalwareScannerView.swift in Sources */,
 				B050 /* BatteryMonitor.swift in Sources */,
 				B051 /* BatteryHealthView.swift in Sources */,
+				B052 /* HomebrewAgent.swift in Sources */,
+				B053 /* NodeAgent.swift in Sources */,
+				B054 /* DockerAgent.swift in Sources */,
+				B055 /* GitAgent.swift in Sources */,
+				B056 /* DeveloperToolsView.swift in Sources */,
+				B057 /* AnimatedComponents.swift in Sources */,
+				B058 /* ScheduleManager.swift in Sources */,
+				B059 /* RecommendationEngine.swift in Sources */,
+				B060 /* ScanHistory.swift in Sources */,
+				B061 /* TimeMachineAgent.swift in Sources */,
+				B062 /* FontAgent.swift in Sources */,
+				B063 /* PermissionsAgent.swift in Sources */,
+				B064 /* PermissionsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,7 +553,7 @@
 				CODE_SIGN_ENTITLEMENTS = ZenScan/ZenScan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -512,7 +564,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zenscan.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -528,7 +580,7 @@
 				CODE_SIGN_ENTITLEMENTS = ZenScan/ZenScan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -539,7 +591,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zenscan.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
